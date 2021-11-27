@@ -1,0 +1,51 @@
+<!-- Requirimientos   -->
+<!-- 
+    Debería agregar elementos.
+    Debería archivar elementos.
+    Muestra un título y la fecha de creación con las siguientes restricciones:
+    La fecha de creación debe tener el formato dd-mm-aaaa
+    Las notas no deben aceptar correos electrónicos como títulos. ------------ya esta hecho
+    El texto debería convertirse automáticamente a mayus.   ------------- ya quedo
+-->
+  <!-- CRUD -->
+
+<br><br>
+<div class="full-width">
+    <button (click)="openDialogCreate()" class="custom-button" mat-fab color="primary" aria-label="Add">
+        <mat-icon>note_add</mat-icon>
+    </button>
+    <!-- <hr> -->
+    <button (click)="openDialogArchived()" class="custom-button" mat-fab color="primary" aria-label="Store">
+        <mat-icon>file_present</mat-icon>
+    </button>
+</div>
+<br><br>
+
+<!-- notes -->
+<div class="div-row">
+    <div class="custom-row" *ngFor="let note of notes;">
+        <mat-card class="card-custom" *ngIf="note.archived == 0">
+            <!-- <mat-card-subtitle>Nombre de la nota</mat-card-subtitle> -->
+            <mat-card-title> {{ note.name }} {{ note.archived }}  </mat-card-title>
+            <mat-card-content>
+                <!-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui exercitationem, esse quasi cumque ab, voluptate totam fuga repellat expedita itaque asperiores impedit blanditiis voluptas vel, ea numquam autem beatae illum.</p> -->
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions>
+                <mat-card-subtitle>
+                    Created: {{ note.created }}
+                </mat-card-subtitle>
+                <button (click)="delete(note.id)" mat-icon-button color="red" aria-label="Example icon button with a home icon">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-icon-button color="red" aria-label="Example icon button with a home icon">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button (click)="archived(note.id, '1')" mat-icon-button color="red" aria-label="Example icon button with a home icon">
+                    <mat-icon>file_present</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+

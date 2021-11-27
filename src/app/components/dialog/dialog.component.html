@@ -1,0 +1,16 @@
+
+<h1 class="text-center">{{ title }}</h1>
+
+<form [formGroup]="addNote">
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Text</mat-label>
+        <textarea matInput formControlName="text" class="full-width-text" (keyup)="onKey()"></textarea>
+    </mat-form-field>
+    <br>
+    <button *ngIf="nameSet == '' " mat-raised-button color="primary" (click)="saveNote(addNote.value)" [disabled]="!addNote.valid">Guardar</button>
+</form>
