@@ -5,7 +5,7 @@ import { NotesComponent } from '../notes/notes.component';
 @Component({
   selector: 'app-archived',
   templateUrl: './archived.component.html',
-  styleUrls: ['./archived.component.scss']
+  styleUrls: ['../../app.component.scss']
 })
 export class ArchivedComponent implements OnInit {
 

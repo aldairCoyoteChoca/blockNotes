@@ -21,12 +21,13 @@
   }
 
   .card.bg {
-    background-color: rgb(0, 0, 0);
+    background-color: teal;
     color: #c2c3c4;
   }
 
   .custom-button {
       margin: 50px;
+      background-color: teal;
   }
 
   .text-center {
@@ -62,7 +63,7 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: black;
+    background-color: teal;
     color: white;
     font-weight: 600;
   }
@@ -155,7 +156,7 @@
   }
 
   .card.highlight-card {
-    background-color: black;
+    background-color: teal;
     color: white;
     font-weight: 600;
     border: none;
@@ -191,7 +192,7 @@
   }
 
   a:hover {
-    color: #125699;
+    color: #37795f;
   }
 
   .terminal {
@@ -244,7 +245,7 @@
 
   .circle-link:hover {
     transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 15px rgba(212, 65, 65, 0.2);
   }
 
   footer {
@@ -294,10 +295,6 @@
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
-    // .card-container > *:not(.circle-link) ,
-    // .terminal {
-    //   width: 100%;
-    // }
 
     .card:not(.highlight-card) {
       height: 16px;
