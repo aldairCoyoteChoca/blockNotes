@@ -25,4 +25,8 @@ export class ArchivedComponent implements OnInit {
     this.notesComponent.show(note);
   }
 
+  delete(note: any){
+    this.notesComponent.delete(note);
+  }
+
 }

@@ -28,8 +28,9 @@ export class NotesComponent {
   }
 
   openDialogCreate(data: any = null) {
+    this.index();
     this.dialog.open(DialogComponent, {
-      data,
+      data: data,
       width: "500px",
       height: "500px"
     });
@@ -40,10 +41,14 @@ export class NotesComponent {
   }
 
   openDialogArchived(){
-    this.dialog.open(ArchivedComponent, {
-      data: this.notes,
-      width: "500px",
-      height: "500px"
+    this.notesService.index().subscribe(response => {
+      const { data } = response;
+      this.notes = data;
+      this.dialog.open(ArchivedComponent, {
+        data: this.notes,
+        width: "500px",
+        height: "500px"
+      });
     });
   }
 
@@ -54,10 +59,13 @@ export class NotesComponent {
       this.alerts.showAlert("Upps!", "The input does not accept emails", "error");
     }else{
       this.closeDialog();
-      this.notesService.create(form).subscribe(response => {
-        console.log(response)
-        this.alerts.showAlert("Success", "Created note", "success");
-        this.index();
+      this.notesService.create(form).subscribe(() => {
+        this.notesService.index().subscribe(response => {
+          const { data } = response;
+          this.notes = data;
+          this.alerts.showAlert("Success", "Created note", "success");
+          this.index();
+        });
       });
     }
   }
@@ -68,6 +76,7 @@ export class NotesComponent {
       const { data, error } = response;
       if(error == ""){
         this.alerts.showAlert("Success", "Deleted note", "success");
+        this.closeDialog();
         this.index();
       }
     });

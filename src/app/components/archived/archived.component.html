@@ -5,10 +5,12 @@
     <mat-list-item  *ngIf="note.archived == 1">
             <mat-icon mat-list-icon>note</mat-icon>
             <div mat-line> {{ note.name }} </div>
-            <div mat-line> {{ note.archived }} </div>
             <div mat-line> {{ note.created }} </div>
             <button (click)="show(note.id)" mat-icon-button color="red" aria-label="Example icon button with a home icon">
                 <mat-icon>visibility</mat-icon>
+            </button>
+            <button (click)="delete(note.id)" mat-icon-button color="red" aria-label="Example icon button with a home icon">
+                <mat-icon>delete</mat-icon>
             </button>
         </mat-list-item>
     </div>
